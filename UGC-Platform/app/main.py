@@ -8,6 +8,7 @@ templates = Jinja2Templates(directory="app/templates")
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     return templates.TemplateResponse(
-        "index.html", 
-        {"request": request, "message": "Chào mừng đến với Bãi Rác Kỹ Thuật Số (có tổ chức) của Wy!"}
+        request=request, 
+        name="index.html", 
+        context={"message": "Chào mừng đến với Bãi Rác Kỹ Thuật Số (có tổ chức) của Wy!"}
     )
